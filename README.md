@@ -371,5 +371,62 @@ creates package.json ==> one per project ==> place where all dependencies and de
 
 
 2) npm i typescript ts-loader webpack webpack-cli html-webpack-plugin -D
+npm i lodash
 
-3) 
+other team members will checkout from "git" and run:
+npm i
+this checks package.json and installs all dependencies
+
+"ts-loader": "9.4.1" ==> need exact version 9.4.1
+
+"ts-loader": "^9.4.1" ==> version equal or greater than "9.4.1"
+
+"ts-loader": "~9.4.1" ==> major version has to be "9"; minor and patch can be latest
+
+https://registry.npmjs.org by default.
+
+3) tsc --init
+this creates tsconfig.json
+
+
+"sourceMap": true, 
+
+runtime JS code is executing on engine; any error ==> it has to map to "ts" <-- reqiured in development
+
+CommonJS module system:
+const webpack = require('webpack'); // NodeJS by default uses CommonJS 
+
+ES 6 module system:
+import webpack from 'webpack';
+
+index.ts ==> a.ts ==> b.ts ==> c.ts .... {bundle.js}
+
+d.ts [ not a part of bundle.js]
+
+============
+
+import Person from './Person';
+
+==> check Person.tsx --. Person.ts --> Person.jsx --> Person.js
+
+"scripts": {
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production"
+ },
+
+ npm run dev
+
+asset bundle.js 5.2 KiB [emitted] (name: main)    
+./src/index.ts 1.02 KiB [built] [code generated]  
+./src/Person.ts 558 bytes [built] [code generated]
+./src/lib.ts 736 bytes [built] [code generated]   
+webpack 5.75.0 compiled successfully in 6523 ms   
+
+
+npm run prod
+ 
+asset bundle.js 1.31 KiB [emitted] [minimized] (name: main)
+./src/index.ts 1.02 KiB [built] [code generated]
+./src/Person.ts 558 bytes [built] [code generated]
+./src/lib.ts 736 bytes [built] [code generated]
+webpack 5.75.0 compiled successfully in 3843 ms
