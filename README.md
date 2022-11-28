@@ -300,4 +300,76 @@ filter<T>(elems:T[], predicate:PredicateFn){
 
 https://rxmarbles.com/
 
+```
+function<T> add(x: T, y: T) : T {
+	return x + y;
+}
 
+add(4,5);
+
+add("Hello", "World");
+
+```
+
+NodeJS
+* Platform with V8 JavaScript and Libuv Async libraries
+
+Where can I use nodeJS?
+1) build traditional web applications [PHP / ASP / Servlet & JSP]
+2) Build APIs [ RESTful WS or GraphQL ws]
+3) Streaming Platform [ OTT -=> Netflix / Hotstar /..]
+4) Build real-time applications [ chatbot]
+5) Building client side web application
+
+Why NodeJS for Building client side web application?
+1) we might write code in Typescript/LiveScript/CoffeeScript/DART --> JS {JS engine}
+2) we might need to do testing [ unit testing / e2e testing]
+3) we need to minify / uglify and bundle your application
+50+ "ts" files 
+
+somefunction() {
+  return 100;
+}
+
+s_(){return 100;}
+
+a.ts, b.ts, c.ts..... ==> traspiled and ==> bundle.js
+
+one netwrok call is all it need from browser
+<script src="bundle.js"></script>
+
+if not
+<script src="a.js"></script>
+<script src="b.js"></script>
+<script src="c.js"></script>
+<script src="d.js"></script>
+<script src="e.js"></script>
+
+------------
+
+JavaScript Build tools on top of NodeJS
+* Grunt
+* Gulp
+* Webpack
+* esbuild
+* parcel
+..
+
+Grunt is a JavaScript task runner, a tool used to automatically perform frequent tasks such as minification, compilation, unit testing, and linting. 
+
+* NPM [default package manager provided with NodeJS]
+Node Package Manager => manage dependencies / Publish libraries / run scripts
+* YARN
+* PNPM
+
+===========
+
+1) npm init --y
+
+creates package.json ==> one per project ==> place where all dependencies and dev-dependencies are configured
+& scripts are configured [Maven ==> pom.xml]
+
+
+2) npm i typescript ts-loader webpack webpack-cli html-webpack-plugin -D
+
+3) 
