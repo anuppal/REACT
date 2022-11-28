@@ -291,3 +291,13 @@ forEach(names, console.log);
 
 ```
 
+
+type PredicateFn<T> = (elem:T) => boolean;
+
+filter<T>(elems:T[], predicate:PredicateFn){
+
+}
+
+https://rxmarbles.com/
+
+

@@ -5,20 +5,18 @@ function forEach<T>(elems:T[], action:(elem:T) => void) : void {
 	}
 }
 
-function filter<T>(elems:T[], predicateFn:(elem:T) => boolean) :T[]  {
-	let res:T[] = [];
+function map<T, R>(elems:T[], transformFn:(elem:T) => R):R[]  {
+	let res:R[] = [];
 	let i:number;
 	for(i = 0; i < elems.length; i++ ) {
-		if(predicateFn(elems[i])) {
-			res.push(elems[i]);
-		}
+		 res.push(transformFn(elems[i]));
 	}
 	return res;
 }
 
 let nos:number[] = [5,2,66,11];
 
-let evens:number[] = filter(nos, (e => e % 2 === 0));
+let doubles:number[] = map(nos, (e => e * 2));
 
 
 interface Product {
@@ -34,10 +32,9 @@ let products:Product[] = [
 {"id":3,"name":"OnePlus 6","price":98444.44,"category" : "mobile"},
 {"id":4,"name":"HDMI connector","price":2444.00,"category" : "computer"},
 {"id":5,"name":"Samsung","price":68000.00,"category" : "tv"}];
+ 
+let names:string[] = map(products, (e => e.name));
 
-//(elem:T) => boolean
-let mobiles:Product[] = filter(products, (p => p.category === 'mobile'));
 
-
-forEach(evens, console.log);
-forEach(mobiles, console.log);
+forEach(doubles, console.log);
+forEach(names, console.log);
