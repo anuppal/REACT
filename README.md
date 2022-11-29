@@ -661,12 +661,17 @@ function CustomerCard({firstName, lastName, avatar}) {
 3) class component
 use this in case if component has state and behaviour
 
+```
 class Customer extends React.Component {
 	state = {
 		firstName : 'George',
 		lastName : 'Shaw'
 	}
 
+	constructor(props) {
+		super(props);
+		// more code here..
+	}
 	setName(n) {
 		this.firstName = n;
 	}
@@ -683,3 +688,10 @@ class Customer extends React.Component {
 
 
 ReactDOM.render(<Customer msg="Virtual React Training!!!!" />, document.getElementById("root"));
+```
+==============
+
+npx ==> executable node package
+
+npx create-react-app customerapp --template typescript
+
