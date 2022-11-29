@@ -1,6 +1,8 @@
 import { Component } from "react";
+import CustomerRow from "./CustomerRow";
+import Filter from "./Filter";
 
-export default class Customer extends Component {
+export default class CustomerList extends Component {
     state = {
         "customers": [{
             "id": 1,
@@ -37,7 +39,10 @@ export default class Customer extends Component {
 
     render() {
         return <div>
-
+            <Filter />
+            {
+                this.state.customers.map(c => <CustomerRow customer={c} />)
+            }
         </div>
     }
 }
