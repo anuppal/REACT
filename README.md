@@ -643,8 +643,43 @@ function Welcome({msg, template}) {
         {msg} using {template}
     </h1>
 }
+
+
+function CustomerCard({firstName, lastName, avatar}) {
+ return <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src={avatar} alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{firstName}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+}
+
 ```
 
 3) class component
+use this in case if component has state and behaviour
+
+class Customer extends React.Component {
+	state = {
+		firstName : 'George',
+		lastName : 'Shaw'
+	}
+
+	setName(n) {
+		this.firstName = n;
+	}
+
+	render() {
+		return <div>
+				FirstName : {this.state.firstName} <br />
+				LastName : {this.state.lastName} <br />
+				Message: {this.props.msg}
+		</div>
+	}
+
+}
 
 
+ReactDOM.render(<Customer msg="Virtual React Training!!!!" />, document.getElementById("root"));
