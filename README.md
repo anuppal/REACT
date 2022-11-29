@@ -695,3 +695,4 @@ npx ==> executable node package
 
 npx create-react-app customerapp --template typescript
 
+Resume @ 4:00
