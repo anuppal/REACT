@@ -430,3 +430,221 @@ asset bundle.js 1.31 KiB [emitted] [minimized] (name: main)
 ./src/Person.ts 558 bytes [built] [code generated]
 ./src/lib.ts 736 bytes [built] [code generated]
 webpack 5.75.0 compiled successfully in 3843 ms
+
+---
+
+The HtmlWebpackPlugin simplifies creation of HTML files to serve your webpack bundles. 
+<script src="bundle.js"></script>
+
+This is especially useful for webpack bundles that include a hash in the filename which changes every compilation.
+
+<script src="bundle34343#12323.js"></script>
+
+make changes
+<script src="bundle@vtrdvd%.js"></script>
+
+Also many bundles will be there
+<script src="bundle.js"></script> // my code
+<script src="vendor.js"></script> // 3rd party library code
+<script src="runtime.js"></script> // like react libary
+
+npm i webpack-dev-server -D
+
+ "start": "webpack serve --mode development",
+
+ npm start
+
+ ====================
+
+ Day 2
+
+ function add(x, y) {
+ 	return x + y;
+ }
+
+ Arrow functions:
+
+ let add = (x,y) => {
+ 	return x + y;
+ }
+
+ OR
+
+let add = (x,y) => x + y;
+
+console.log(add(4,5));
+
+-----------
+
+Most of the libraries available are in "JS".
+How to use "JS" in "TS"?
+
+APPROACH 1:
+index.ts
+import {random} from 'lodash'; //JS library 
+console.log(random(2,5));
+
+
+typings.d.ts
+declare module 'lodash' {
+    export function random(min:number, max:number) : number
+}
+
+APPROACH 2:
+https://github.com/DefinitelyTyped/DefinitelyTyped
+
+npm i -D @types/lodash
+
+Example:
+
+npm i react // installs react js library
+to use it in TS
+npm i -D @types/react
+
+https://createapp.dev/
+
+==============================================
+
+React
+
+* Rendering ==> data to presentation
+* SSR ==> server side rendering
+* CSR ==> client side rendering
+
+CSR options:
+1) DOM --> Document Object Model --> element in the form of Object [JavaScript / VbScript]
+--> manipulate pages ==> Create new element / delete / add events
+
+2) jQuery --> library which simplied DOM handling
+
+3) Templates --> HandleBar # / Mustache / Underscore template / jquery template / knockout
+
+
+Mix static content with dynamic content:
+"Hello" is static; {{name}} is dynamic
+
+server sends JSON data as below:
+
+{
+	name : "Harry Potter"
+}
+
+
+<script id="template" type="x-tmpl-mustache">
+      Hello {{ name }}!
+</script>
+
+{{}} is called as interpolation
+
+{
+	firstName : 'Raj',
+	lastName: 'Kumar',
+	avatar: 'images/mine.png'
+}
+
+<script id="template" type="x-tmpl-mustache">
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src={{avatar}} alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{firstName}}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</script>
+
+Hello Harry Potter!
+
+4) SPA ==> Single Page Application ==> index.html with many views
+different URLs should display different Views in a single index.html
+
+Landing page
+http://amazon.com/
+
+Mobiles page
+http://amazon.com/mobiles
+
+iphone page
+http://amazon.com/mobiles/iphone
+
+mobiles
+http://amazon.com/mobiles?low=150000&high=100000
+
+Cart page
+http://amazon.com/cart
+
+Many modules ==> Customer Module, ProductModule, CartModule , PaymentModule
+
+MVC Architectural pattern ==> Model View Controller
+
+Libraries and Framework
+1) Backbone ==> Library ==> Model and Controller support was provided; we have to choose any templates as listed above for view
+
+2) AngularJS --> Framework
+
+3) React --> View Library --> component
+
+4) Angular --> Framework --> component / service / guard / router/ pipe
+
+5) Vue
+...
+
+https://codepen.io/
+
+JS:
+Babel as Pre-processor
+
+External JS:
+react
+https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js
+
+react-dom
+https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js
+
+Save & close
+
+https://github.com/chentsulin/awesome-react-renderer
+
+
+Different ways of creating React Elements:
+1) createElement --> Top Level API
+```
+let Welcome = React.createElement("h1", {style:{color:'red'}}, "Welcome to React!!!")
+
+console.log(Welcome)
+
+ReactDOM.render(Welcome, document.getElementById("root"));
+
+```
+2) functional component returns JSX {JavaScript and XML} ==> Babel / TSC converts JSX to ReactElement
+```
+function Welcome() {
+  return <h1 style={{color:'green'}}>
+        Welcome to React!!!
+    </h1>
+}
+console.log(Welcome())
+ReactDOM.render(<Welcome />, document.getElementById("root"));
+
+---
+
+function Welcome(props) {
+  return <h1 style={{color:'green'}}>
+        {props.msg} using {props.template}
+    </h1>
+}
+ 
+ReactDOM.render(<Welcome msg="Virtual React Training!!!!" template="typescript"/>, document.getElementById("root"));
+
+OR using Destructuring
+
+function Welcome({msg, template}) {
+  return <h1 style={{color:'green'}}>
+        {msg} using {template}
+    </h1>
+}
+```
+
+3) class component
+
+

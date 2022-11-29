@@ -1,6 +1,9 @@
 import Person from './Person'; // resolve from local module
-import {forEach, map} from './lib';
+import {forEach, map, filter} from './lib';
 import Product from './Product';
+import {random} from 'lodash'; //JS library 
+
+console.log(random(2,5));
 
 console.log("Hello World!!!");
 
