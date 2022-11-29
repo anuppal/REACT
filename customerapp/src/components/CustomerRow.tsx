@@ -2,14 +2,21 @@ import { Component } from "react";
 import Customer from "../model/Customer";
 
 type Props = {
-    customer:Customer
+    customer:Customer,
+    delEvent:(id:number) => void
 }
 export default class CustomerRow extends Component<Props> {
-
     render() {
+        let {id, firstName, lastName} = this.props.customer; // desctructing
         return <div>
-            {this.props.customer.firstName} {this.props.customer.lastName}
-            &nbsp;<button type="button">Delete</button>
+            {firstName} {lastName}
+            &nbsp;  <button type="button" 
+                onClick={() => this.deleteRow(id)}>Delete</button>
         </div>
     }
+
+    deleteRow(id:number): void  {
+        console.log("CustomerRow", id);
+        this.props.delEvent(id);
+    }   
 }
