@@ -1,5 +1,6 @@
 
-const data =[  
+state = {
+  "recipes": [ 
    {  
       "name":"Baked Salmon",
       "ingredients":[  
@@ -78,4 +79,5 @@ const data =[
          "Top them with lettuce, tomatoes, and cheese."
       ]
    }
-];
+]
+}
