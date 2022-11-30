@@ -1,12 +1,14 @@
-
 import Product from '../model/Product';
 type Props = {
-	product:Product
+	product:Product,
+	delEvent: (id:number) => void
 }
 
-//function ProductCard(props:Props) {
-export default function ProductCard({product}:Props) {
+
+export default function ProductCard({product, delEvent}:Props) {
   	return <div>
-  			{product.id} {product.name} {product.price}
+  			{product.id} {product.name} {product.price} 
+  			<button onClick={() => delEvent(product.id)}>Delete</button>
   	</div>
 }
+
