@@ -695,4 +695,268 @@ npx ==> executable node package
 
 npx create-react-app customerapp --template typescript
 
-Resume @ 4:00
+ 
+this creates a scaffolding built on top of webpack, adding all libraries required for react with typescript
+
+npm start
+
+this starts the webpack-dev-server on 3000 port
+
+--------------
+
+"start": "react-scripts start", a layer to start webpack dev server
+same as "start": "webpack serve --mode development"
+
+======================================================
+
+React Component
+
+* Functional Component --> return JSX / TSX { typescript & XML }
+
+```
+function Customer() {
+	return <div>
+			<h1>Hello</h1>
+	</div>
+}
+
+returned JSX is converted into React element
+HTML:
+<div id="root"></div>
+
+ReactDOM.render(<Customer />, document.getElementById("root"));
+
+Final output looks like:
+
+<div id="root">
+	 <div>
+			<h1>Hello</h1>
+	</div>
+</div>
+```
+-------------
+<Customer />  ==> creates VDOM --> Potential DOM
+
+Renders are responible to convert VDOM into DOM
+
+-------------
+
+using JavaScript in Functional Component: --> interpolation --> data to presentation
+```
+let customer = {
+	firstName: 'Raj',
+	lastName: 'Kiran'
+}
+
+function Customer() {
+	return <div>
+			<h1>Hello {customer.firstName}  {customer.lastName}</h1>
+	</div>
+}
+
+<div id="root"></div>
+
+ReactDOM.render(<Customer />, document.getElementById("root"));
+<div id="root">
+	 <div>
+			<h1>Hello Raj Kiran</h1>
+	</div>
+</div>
+```
+-------------
+
+Using Props
+
+Option 1:
+
+```
+function Customer(props) {
+	return <div>
+			<h1>Hello {props.firstName}  {props.lastName}</h1>
+	</div>
+}
+
+<div id="root"></div>
+
+ReactDOM.render(<Customer firstName="Raj" lastName="Kiran"/>, document.getElementById("root"));
+```
+Option 2:
+```
+function Customer({firstName, lastName}) {
+	return <div>
+			<h1>Hello {firstName}  {lastName}</h1>
+	</div>
+}
+
+<div id="root"></div>
+
+ReactDOM.render(<Customer firstName="Raj" lastName="Kiran"/>, document.getElementById("root"));
+
+
+
+Using Map built-in HOF:
+
+let names = [
+	"Anna",
+	"Peter",
+	"Kim"
+];
+
+function NameList() {
+	return <div>
+				{
+					names.map((name, index) => <h1> {name}</h1>)
+				}
+		</div>
+}
+
+<div id="root"></div>
+
+ReactDOM.render(<NameList/>, document.getElementById("root"));
+
+<div id="root">
+	<div>
+		<h1>Anna</h1>
+		<h1>Peter</h1>
+		<h1>Kim</h1>
+	</div>
+</div>
+
+```
+
+import ReactDOM from 'react-dom';
+let products = [
+  {"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"},
+  {"id":2,"name":"Onida","price":4444.44,"category" : "tv"},
+  {"id":3,"name":"OnePlus 6","price":98444.44,"category" : "mobile"},
+  {"id":4,"name":"HDMI connector","price":2444.00,"category" : "computer"},
+  {"id":5,"name":"Samsung","price":68000.00,"category" : "tv"}];
+  
+  function ProductList() {
+    return <div>
+        {
+          products.map(p => <div> {p.name}, {p.price}, {p.category} </div>)
+        }
+    </div>
+  }
+  
+  ReactDOM.render(<ProductList/>, document.getElementById("root"));
+
+ ```
+
+ More than 1 component in a application:
+
+ let products = [
+  {"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"},
+  {"id":2,"name":"Onida","price":4444.44,"category" : "tv"},
+  {"id":3,"name":"OnePlus 6","price":98444.44,"category" : "mobile"},
+  {"id":4,"name":"HDMI connector","price":2444.00,"category" : "computer"},
+  {"id":5,"name":"Samsung","price":68000.00,"category" : "tv"}];
+  
+  function ProductList() {
+    return <div>
+        {
+          products.map(p =>  <ProductCard product={p}/>)
+        }
+    </div>
+  }
+  
+  function ProductCard(props) {
+  	return <div>
+  			{props.product.id} {props.product.name} {props.product.price}
+  	</div>
+  }
+  ReactDOM.render(<ProductList/>, document.getElementById("root"));
+
+  Or ProductCard can be written as:
+
+   function ProductCard({product}) {
+  	return <div>
+  			{product.id} {product.name} {product.price}
+  	</div>
+  }
+
+  OR:
+
+   function ProductCard({product}) {
+   	let {id, name, price} = product;
+  	return <div>
+  			{id} {name} {price}
+  	</div>
+  }
+
+----------
+Flow:
+index.tsx --> App.tsx --> ProductList.tsx --> ProductCard.tsx
+
+Using TypeScript:
+
+model/Product.ts
+export default interface Product {
+	id:number;
+	name:string;
+	price:number;
+	category:string;
+}
+
+---
+components/ProductList.tsx
+
+import Product from '../model/Product';
+import ProductCard from './ProductCard';
+
+ let products:Product[] = [
+  {"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"},
+  {"id":2,"name":"Onida","price":4444.44,"category" : "tv"},
+  {"id":3,"name":"OnePlus 6","price":98444.44,"category" : "mobile"},
+  {"id":4,"name":"HDMI connector","price":2444.00,"category" : "computer"},
+  {"id":5,"name":"Samsung","price":68000.00,"category" : "tv"}];
+  
+export default function ProductList() {
+    return <div>
+        {
+          products.map(p =>  <ProductCard product={p}/>)
+        }
+    </div>
+  }
+
+------
+
+components/ProductCard.tsx
+
+import Product from '../model/Product';
+type Props = {
+	product:Product
+}
+
+//function ProductCard(props:Props) {
+export default function ProductCard({product}:Props) {
+  	return <div>
+  			{product.id} {product.name} {product.price}
+  	</div>
+}
+
+---
+App.tsx
+
+import ProductList from './components/ProductList';
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Customer Application</h1>
+      {/* <CustomerList/> */}
+      <ProductList />
+    </div>
+  );
+}
+
+--
+
+Don't touch index.tsx
+
+
+
+
+
+
