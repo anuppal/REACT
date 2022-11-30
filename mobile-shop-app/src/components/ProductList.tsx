@@ -58,7 +58,7 @@ export default function ProductList() {
     return <div className="container">
         <div className="row">
             {
-                products.map(p => <ProductCard product={p}/>)
+                products.map(p => <ProductCard product={p} key={p.productId}/>)
             }
         </div>
     </div>

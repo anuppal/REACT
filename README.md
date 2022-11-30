@@ -1027,6 +1027,24 @@ Mobile Application:
 1) Fontawesome ==> for ICONS { <FontAwesomeIcon icon={faShoppingCart}/>}
 2) bootstrap contains CSS like {card, col-md, container, } react-bootstrap {Navbar, Button} ==> Response Web Design [ CSS library]
 
+https://reactjs.org/docs/thinking-in-react.html
+
+================
+
+react-router-dom
+
+used to display different components based on Route URL
+
+http://localhost:3000/ has to display Landing Home Page
+http://localhost:3000/products has to display ProductList.txt --> ProductCard.tsx
+http://localhost:3000/cart has to display Cart.tsx --> many CartList.tsx
+
+npm i react-router-dom
+
+npm i @types/react-router-dom -D
+
+
+
 
 
 
