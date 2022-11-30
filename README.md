@@ -1022,5 +1022,14 @@ export default function ProductCard({product, delEvent}:Props) {
 
 ```
 
+Mobile Application:
+
+1) Fontawesome ==> for ICONS { <FontAwesomeIcon icon={faShoppingCart}/>}
+2) bootstrap contains CSS like {card, col-md, container, } react-bootstrap {Navbar, Button} ==> Response Web Design [ CSS library]
+
+
+
+
+
 
 
