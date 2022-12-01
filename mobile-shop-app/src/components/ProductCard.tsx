@@ -1,12 +1,15 @@
 import { faShoppingCart, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from 'react';
 import Product from '../model/Product';
+import { CartContext } from './CartContext';
 
 type Props = {
     product:Product
 }
 
 export default function ProductCard({product}:Props) {
+    let {addToCart} = useContext(CartContext);
     return <div className='col-md-4'>
         <div className="item">
             <div className="mb-r">
@@ -28,7 +31,9 @@ export default function ProductCard({product}:Props) {
                             <span className="right px-2">
                                 <a>
                                     <FontAwesomeIcon icon={faHeart} color="red" className='px-3' />
-                                    <FontAwesomeIcon icon={faShoppingCart} color="blue" />
+                                    <FontAwesomeIcon 
+                                    onClick={() => addToCart(product.productId)}
+                                    icon={faShoppingCart} color="blue" />
                                 </a>
                             </span>
                         </div>

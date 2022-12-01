@@ -5,11 +5,14 @@ import App from './App';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProductProvider from './components/ProductContext';
+import CartProvider from './components/CartContext';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
  <ProductProvider>
-    <App />
+  <CartProvider>
+      <App />
+  </CartProvider>
   </ProductProvider>
 );

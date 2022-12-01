@@ -1,5 +1,12 @@
+ 
 import Cart from "../model/Cart";
 import Product from "../model/Product";
+
+
+  export interface StateType {
+      products: Cart[],
+      total:number
+  }
 
 type Action = {
     type:"ADD_TO_CART",

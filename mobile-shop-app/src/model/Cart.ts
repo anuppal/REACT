@@ -1,8 +1,8 @@
-export default interface Cart {
-    id:number;
-    name:string;
-    price:number;
-    quantity: number;
-    amount: number;
-    image:number
-}
+export default interface ICart {
+    id: number;
+    name: string;
+    price: number;
+    image: string;
+    quantity:number;
+    amount:number;
+  }
