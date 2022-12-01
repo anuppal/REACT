@@ -1174,3 +1174,44 @@ Changes after adding "axios" and "Context":
 1) ProductContext.tsx ==> create context and placing data into context using axios
 2) index.tsx --> used Provider
 3) ProductList.tsx  --> useContext() =-> Consumer
+
+-----------
+
+useState()
+
+function App() {
+	let [number,setNumber] = useState(10);
+
+	return <div>
+			Value : {number} <br />
+			<button onClick={() => setNumber(number + 1)}>Increment</button>
+	</div>
+}
+
+"number" is a state variable
+"setNumber" is a mutation function
+
+If above code is done using class Component
+
+
+class App extends Component {
+	state = {
+		number = 0
+	}
+
+	setNumber(x) {
+		this.setState( {
+			number: x
+		})
+	}
+
+	render() {
+		return <div>
+			Value : {this.state.number} <br />
+			<button onClick={() => this.setNumber(number + 1)}>Increment</button>
+	</div>
+	}
+}
+
+====================
+
