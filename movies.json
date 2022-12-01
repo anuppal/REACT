@@ -1,0 +1,11 @@
+{
+	"movies": [
+			{"id": 1, "name" : "Avatar"},
+			{"id": 2, "name": "Spectre"},
+			{"id":3, "name": "Broken Arrow", "actor-id": 23},
+	],
+	"actors": [
+		{"id": 23, "name" : "Travolta"},
+		{"id": 42, "name" : "Anna Hathaway"}
+	]
+}

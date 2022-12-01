@@ -1007,6 +1007,7 @@ export default class ProductList extends Component<Props, AppState> {
 components/ProductCard.tsx
 
 import Product from '../model/Product';
+
 type Props = {
 	product:Product,
 	delEvent: (id:number) => void
@@ -1053,11 +1054,123 @@ https://reactjs.org/docs/thinking-in-react.html
 
 ===========================================================
 
+https://contactmentor.com/best-react-projects-for-beginners-easy/
+
+https://www.w3schools.com/react/react_exercises.asp
+
+https://coderfiles.dev/blog/reactjs-coding-exercises/
+
+Replicate: https://react-blog-website.vercel.app/
+
+----
+
+Day 3
+
+FontAwesome: ICONS
+fortawesome/react
+https://fontawesome.com/icons/
 
 
+CSS Library:
+* Bootstrap
+* Bulma
+* Tailswind
+npm i boostrap
+
+---
+
+React Router DOM.
+
+---------------------------
+
+Testing:
+* Unit Testing
+* E2E Testing
+* UAT
+
+-----------------
+
+React Context
+Context provides a way to pass data through the component tree without having to pass props down manually at every level
+
+JSON Server: Get a full fake REST API with zero coding
+
+npx json-server --watch data.json --port 1234
+
+http://localhost:1234/products
+
+CRUD operations on data.json
+
+REACT --> axios library --> Backend RESTful WS
+
+CRUD ==> CREATE READ UPDATE DELETE
+
+Http Method    operation
+GET 			 --> READ
+POST  		---> CREATE
+PUT       ---> UPDATE
+DELETE     ---> DELETE
 
 
+npm i axios @types/axios
 
+========================
 
+Functional components Hooks:
 
+1) useEffect() ==> any API calls
+2) useState() -> to declare state variable in functional component
 
+class MyComp extends Component {
+	state = {
+		x : string;
+		y: number;
+	}
+
+	setX(a) {
+		this.setState({
+			x: a
+		});
+	}
+
+	setY(b) {
+		this.setState({
+			y: b
+		})
+	}
+}
+
+By using Functional component
+
+function MyComp() {
+	let [x, setX] = useState<string>("");
+	let [y, setY] = useState<number>(0);
+}
+
+---
+<ProductProvider>
+	<App/>
+</ProductProvider>
+
+App is a children   {props.children} refers to <App>
+
+---
+
+<ProductProvider>
+	<A/>
+	<B />
+</ProductProvider>
+
+A and B are Children  {props.children} refers to <A /> <B />
+
+<ProductProvider>
+	Hello!!!
+</ProductProvider>
+
+"Hello!!!" string is a childern props  {props.children} refers to Hello!!!
+
+Changes after adding "axios" and "Context":
+
+1) ProductContext.tsx ==> create context and placing data into context using axios
+2) index.tsx --> used Provider
+3) ProductList.tsx  --> useContext() =-> Consumer
