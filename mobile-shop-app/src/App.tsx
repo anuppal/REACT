@@ -5,6 +5,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import ProductList from './components/ProductList';
 import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
 import Cart from './components/Cart';
+import Details from './components/Details';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
      <Routes>
       <Route path="/products" element={<ProductList />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/details/:id" element={<Details />} />
       <Route path="/" element={<ProductList />} />
       <Route path="*" element={<ProductList />} />
      </Routes>

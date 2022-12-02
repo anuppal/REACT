@@ -1270,5 +1270,33 @@ consumer of the data present in Context}; Provider is one which places the data 
 	a) mutation depends on previous state
 	b) conditionally mutate the state
 
-	
+	model/Cart.ts
+	reducer/CartReducer.tsx
+	components/CartContext.tsx
+	components/ProductCard.tsx ==> calling addToCart() function of CartContex
+	components/Cart.tsx
+	components/CartList.tsx
+	index.tsx
+
+ npx json-server --watch data.json --port 1234
+ npm start
+
+to="/details/:id"
+
+"id" is called as Path Parameter
+
+http://localhost:3000/details/4
+http://localhost:3000/details/1
+
+Query Parameters [?] --> & --> delimiter
+http://localhost:3000/products?page=1&size=10
+
+  <Link to={"/details/" + product.productId}>
+  <Link to={`/details/${product.productId}`}> // ES 6 String literal
+
+  
+
+
+
+
 

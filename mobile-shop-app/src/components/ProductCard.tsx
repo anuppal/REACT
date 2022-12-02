@@ -1,6 +1,7 @@
 import { faShoppingCart, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Product from '../model/Product';
 import { CartContext } from './CartContext';
 
@@ -16,7 +17,9 @@ export default function ProductCard({product}:Props) {
                 <div className="card card-cascade wider">
                     <a>
                         <div className="view overlay hm-white-slight">
-                            <img src={product.productImageUrl} className="img-fluid" alt="" width="360px" height="640px" />
+                            <Link to={`/details/${product.productId}`}>
+                              <img src={product.productImageUrl} className="img-fluid" alt="" width="360px" height="640px" />
+                            </Link>
                         </div>
                     </a>
                     <div className="card-body text-center no-padding">
