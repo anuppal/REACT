@@ -1214,4 +1214,61 @@ class App extends Component {
 }
 
 ====================
+useState()
+useEffect()
+useReducer() Hook
+
+useState() hook is used to set state
+useReducer() should be used instead of useState() if "state" depends on previous values and conditionally update the state.
+
+Action Object:
+{
+	type: ...
+	payload: ...
+}
+
+Example:
+
+{
+	type: "ADD_CART",
+	payload: product
+}
+
+
+{
+	type: "CLEAR_CART"
+}
+
+Product added to cart havinng id = 5 is incremented by one
+{
+	type:"INCREMENT",
+	id: 5
+}
+
+---------
+
+Day 5
+
+https://www.primefaces.org/primereact/
+https://www.telerik.com/kendo-react-ui
+https://jsonplaceholder.typicode.com/
+
+
+Recap:
+
+1) RESTful Server to serve JSON data ==> json-server ==> to fake RESTful WS
+
+npx json-server --watch data.json --port 1234
+
+in REACT to make API calls we used "axios" --> http client library [ get, post, put , delete]
+
+2) Context --> react context is a placeholder to have state to avoid props drill { useContext() becomes a
+consumer of the data present in Context}; Provider is one which places the data in Context
+
+
+3) useReducer is Hook to be used in Functional Component instead of useState() if:
+	a) mutation depends on previous state
+	b) conditionally mutate the state
+
+	
 
