@@ -1526,3 +1526,6 @@ Redux
 
 https://redux.js.org/
 https://redux-toolkit.js.org/
+
+https://towardsdatascience.com/build-a-simple-todo-app-using-react-a492adc9c8a4
+
