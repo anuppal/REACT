@@ -1415,9 +1415,114 @@ export default function ProductForm() {
 }
 ```
 
+Avoid re-render of Components
 
+Without Memo: every time state in parent [App] changes App renders forcing Child also to re-render
+{ even though Child is not dependenct on "age" }
 
+```
+<div id="root"></div>
+function Child(props) {
+  console.log("Child renders");
+  return <>
+    Child : {props.name}
+  </>
+}
 
+ 
+function App() {
+  console.log("Parent renders");
+  let [age, setAge] = React.useState(24);
+  let [name, setName] = React.useState('R');
+  
+  return <>
+    Age: {age} <br />
+    <button onClick={() => setAge(age + 1)}>Change Age </button>
+    <Child name={name} />
+   </>
+}
 
+ReactDOM.render(<App/>, document.getElementById("root"));
 
+```
 
+With Memo:
+
+<div id="root"></div>
+function Child(props) {
+  console.log("Child renders");
+  return <>
+    Child : {props.name}
+  </>
+}
+
+let MemoChild = React.memo(Child);
+
+function App() {
+  console.log("Parent renders");
+  let [age, setAge] = React.useState(24);
+  let [name, setName] = React.useState('R');
+  
+  return <>
+    Age: {age} <br />
+    <button onClick={() => setAge(age + 1)}>Change Age </button>
+    <MemoChild name={name} />
+   </>
+}
+
+ReactDOM.render(<App/>, document.getElementById("root"));
+
+```
+
+ return <div>
+    Child : {props.name}
+  </div>
+
+Note: JSX has to have a root element
+
+Below code is error: You are returning 2 elements
+
+return <h1>Hello</h1> <h2>World</h2>
+
+Solution:
+return <div><h1>Hello</h1> <h2>World</h2></div>
+
+Or use : React Fragment
+
+return <><h1>Hello</h1> <h2>World</h2></>
+
+-------------------
+
+Error Boundaries:
+
+```
+export default class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+       return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.log(error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children; 
+  }
+}
+
+```
+ 
+Redux 
+
+https://redux.js.org/
+https://redux-toolkit.js.org/
