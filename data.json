@@ -74,6 +74,17 @@
       "productQuantity": 9,
       "productSeller": "Motorolla",
       "ratings": 4
+    },
+    {
+      "id": 6,
+      "productId": 6,
+      "productDescription": "some Description....",
+      "productName": "iPhone 14",
+      "productPrice": 98000,
+      "productQuantity": 100,
+      "productSeller": "Apple",
+      "ratings": 5,
+      "productImageUrl": "images/iphone-x-in-hand.jpg"
     }
   ]
 }
