@@ -85,6 +85,17 @@
       "productSeller": "Apple",
       "ratings": 5,
       "productImageUrl": "images/iphone-x-in-hand.jpg"
+    },
+    {
+      "id": "8",
+      "productId": "8",
+      "productDescription": "some Description....",
+      "productName": "test",
+      "productPrice": "4444",
+      "productQuantity": 100,
+      "productSeller": "Apple",
+      "ratings": 5,
+      "productImageUrl": ""
     }
   ]
 }
