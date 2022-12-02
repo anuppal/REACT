@@ -2,44 +2,24 @@
   "orders": [
     {
       "customer": "banu@gmail.com",
-      "order_date": "2022-12-02T10:00:04.633Z",
+      "order_date": "2022-12-02T10:08:44.153Z",
       "items": [
-        [
-          {
-            "id": 2,
-            "name": "Nokia 8.1",
-            "price": 26000,
-            "quantity": 2,
-            "amount": 52000,
-            "image": "/images/nokia8-1.jpg"
-          },
-          {
-            "id": 3,
-            "name": "Realme 1",
-            "price": 10999,
-            "quantity": 1,
-            "amount": 10999,
-            "image": "/images/realme1.jpg"
-          }
-        ],
-        [
-          {
-            "id": 2,
-            "name": "Nokia 8.1",
-            "price": 26000,
-            "quantity": 2,
-            "amount": 52000,
-            "image": "/images/nokia8-1.jpg"
-          },
-          {
-            "id": 3,
-            "name": "Realme 1",
-            "price": 10999,
-            "quantity": 1,
-            "amount": 10999,
-            "image": "/images/realme1.jpg"
-          }
-        ]
+        {
+          "id": 1,
+          "name": "Apple iPhone X 64,GB ",
+          "price": 87049,
+          "quantity": 2,
+          "amount": 174098,
+          "image": "/images/iphone-x-in-hand.jpg"
+        },
+        {
+          "id": 3,
+          "name": "Realme 1",
+          "price": 10999,
+          "quantity": 2,
+          "amount": 21998,
+          "image": "/images/realme1.jpg"
+        }
       ],
       "id": 1
     }
@@ -94,6 +74,17 @@
       "productQuantity": 9,
       "productSeller": "Motorolla",
       "ratings": 4
+    },
+    {
+      "id": 6,
+      "productId": 6,
+      "productDescription": "some Description....",
+      "productName": "iPhone 14",
+      "productPrice": 98000,
+      "productQuantity": 100,
+      "productSeller": "Apple",
+      "ratings": 5,
+      "productImageUrl": "images/iphone-x-in-hand.jpg"
     }
   ]
 }

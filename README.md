@@ -1294,7 +1294,73 @@ http://localhost:3000/products?page=1&size=10
   <Link to={"/details/" + product.productId}>
   <Link to={`/details/${product.productId}`}> // ES 6 String literal
 
-  
+  http://localhost:1234/products?productId=4
+
+
+ On Login success:
+ Browser Console:
+ window.sessionStorage.setItem("user","banu@gmail.com"); // currently done in browser console
+
+Checkout implementation:
+1) CartContext.tsx
+added checkout()
+2) Cart.tsx
+
+---
+
+1) useState()
+2) useEffect()
+3) useReducer()
+4) useParams() path-parameter http://localhost:3000/details/4
+5) useContext() for consumer of Context
+6) useSearchParams() 	Query Parameter http://localhost:3000/products?page=1&size=10
+
+---------
+
+1) uncontrolled component
+
+```
+import axios from "axios";
+import { MutableRefObject, useRef } from "react";
+import { Button } from "react-bootstrap";
+import Product from "../model/Product";
+
+export default function ProductForm() {
+    const idRef = useRef() as MutableRefObject<HTMLInputElement>;
+    const nameRef = useRef() as MutableRefObject<HTMLInputElement>;
+    const priceRef = useRef() as MutableRefObject<HTMLInputElement>;
+    const imgRef = useRef() as MutableRefObject<HTMLInputElement>;
+
+    function submit() {
+        let product:Product = {
+            id: +idRef.current.value,
+            productId: +idRef.current.value,
+            productDescription: "some Description....",
+            productName : nameRef.current.value,
+            productPrice : +priceRef.current.value,
+            productQuantity: 100,
+            productSeller : "Apple",
+            ratings: 5,
+            productImageUrl: imgRef.current.value
+        }
+        axios.post("http://localhost:1234/products", product).then(response => {
+            console.log(response);
+        })
+    }
+    return <div className="container">
+        <form>
+            ID <input type="number" ref={idRef}/> <br />
+            Name <input type="text" ref={nameRef}/> <br />
+            Price <input type="number"ref={priceRef} /> <br />
+            Image <input type="text" ref={imgRef}/> <br />
+            <Button variant="success" onClick={() => submit()}>Add Phone</Button> 
+        </form>
+    </div>
+}
+
+```
+
+
 
 
 
