@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from 'react';
 import Product from "../model/Product";
 import axios from 'axios';
 
@@ -14,6 +14,7 @@ const ProductContext  = createContext<ContextType>({
 type Props = {
     children:React.ReactNode
 }
+
 export default function ProductProvider(props:Props) {
     let [products, setProducts] = useState<Product[]>([]);
     // this code gets called when first time component is loaded
