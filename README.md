@@ -1294,7 +1294,21 @@ http://localhost:3000/products?page=1&size=10
   <Link to={"/details/" + product.productId}>
   <Link to={`/details/${product.productId}`}> // ES 6 String literal
 
-  
+  http://localhost:1234/products?productId=4
+
+
+ On Login success:
+ Browser Console:
+ window.sessionStorage.setItem("user","banu@gmail.com"); // currently done in browser console
+
+Checkout implementation:
+1) CartContext.tsx
+added checkout()
+2) Cart.tsx
+
+Resume @4:00
+
+
 
 
 

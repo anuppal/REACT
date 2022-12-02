@@ -3,6 +3,8 @@ import { createContext, useContext, useReducer } from "react";
 import ICart from "../model/Cart";
 import CartReducer  from "../reducer/CartReducer";
 import { ProductContext } from "./ProductContext";
+// import { useNavigate } from "react-router-dom";
+
 
 type ContextType = {
     cart: ICart[],
@@ -27,6 +29,7 @@ type Props = {
 }
 
 export  default function CartProvider(props:Props) {
+    // const navigate = useNavigate();
     let [state, dispatch] = useReducer(CartReducer, initialState);
     let {products}  = useContext(ProductContext); // data from server
     function addToCart(id:number) {
@@ -41,11 +44,13 @@ export  default function CartProvider(props:Props) {
         let order:any = {};
         order.customer = window.sessionStorage.getItem("user");
         order.order_date =  new Date();
-        order.items = state.products.map(p =>  state.products);
+       // order.items = state.products.map(p =>  state.products);
+        order.items = state.products;
 
         axios.post("http://localhost:1234/orders", order).then(response => {
             console.log("order placed!!!");
             dispatch({type:'CLEAR_CART'});
+            // navigate("/products");
         });
     }
 
