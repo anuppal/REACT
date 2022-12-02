@@ -39,7 +39,7 @@ export default function CartReducer(state: CartStateType, action: Action) {
 
             return { products, total: state.total };
         case 'CLEAR_CART':
-            return state;
+            return {products:[], total:0};
 
         default:
             return state;
