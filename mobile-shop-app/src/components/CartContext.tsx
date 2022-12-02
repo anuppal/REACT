@@ -25,7 +25,7 @@ type Props = {
 
 export  default function CartProvider(props:Props) {
     let [state, dispatch] = useReducer(CartReducer, initialState);
-    let {products}  = useContext(ProductContext);
+    let {products}  = useContext(ProductContext); // data from server
     function addToCart(id:number) {
         let prd = products.find(p => p.productId === id)!;
         dispatch({type:'ADD_TO_CART', payload:prd})

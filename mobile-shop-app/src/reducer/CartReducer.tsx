@@ -1,18 +1,15 @@
-import Cart from "../model/Cart";
+import ICart from "../model/Cart";
 import Product from "../model/Product";
-
-export interface StateType {
-    products: Cart[],
-    total: number
-}
 
 type Action = {
     type: "ADD_TO_CART",
     payload: Product
-} | { type: "INCREMENT", payload: number } | { type: "CLEAR_CART" }
+} | 
+{ type: "INCREMENT", payload: number } | 
+{ type: "CLEAR_CART" }
 
 export interface CartStateType {
-    products: Cart[],
+    products: ICart[],
     total: number
 }
 export default function CartReducer(state: CartStateType, action: Action) {
@@ -27,9 +24,9 @@ export default function CartReducer(state: CartStateType, action: Action) {
                 amount: product.productPrice,
                 image: product.productImageUrl
             }
-            let cartItems = state.products;
+            let cartItems = state.products; // []
             let total = state.total += item.amount;
-            return { products: [...cartItems, item], total };
+            return { products: [...cartItems, item], total }; // products:[{..}]
         case 'INCREMENT':
             let products = state.products;
             products.forEach(p => {

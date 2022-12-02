@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import CartList from "./CartList";
 
-const Cart = () => {
+export default function Cart() {
 	let {cart} = useContext(CartContext);
 	return <div className="container">
 		{
@@ -12,4 +12,3 @@ const Cart = () => {
 	</div>
 }
 
-export default Cart;

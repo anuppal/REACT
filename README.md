@@ -1247,8 +1247,28 @@ Product added to cart havinng id = 5 is incremented by one
 
 ---------
 
-ADD_TO_CART
-REMOVE_FROM_CART
-INCREMENT
-DECREMENT
+Day 5
+
+https://www.primefaces.org/primereact/
+https://www.telerik.com/kendo-react-ui
+https://jsonplaceholder.typicode.com/
+
+
+Recap:
+
+1) RESTful Server to serve JSON data ==> json-server ==> to fake RESTful WS
+
+npx json-server --watch data.json --port 1234
+
+in REACT to make API calls we used "axios" --> http client library [ get, post, put , delete]
+
+2) Context --> react context is a placeholder to have state to avoid props drill { useContext() becomes a
+consumer of the data present in Context}; Provider is one which places the data in Context
+
+
+3) useReducer is Hook to be used in Functional Component instead of useState() if:
+	a) mutation depends on previous state
+	b) conditionally mutate the state
+
+	
 
