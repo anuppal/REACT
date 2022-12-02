@@ -1214,4 +1214,41 @@ class App extends Component {
 }
 
 ====================
+useState()
+useEffect()
+useReducer() Hook
+
+useState() hook is used to set state
+useReducer() should be used instead of useState() if "state" depends on previous values and conditionally update the state.
+
+Action Object:
+{
+	type: ...
+	payload: ...
+}
+
+Example:
+
+{
+	type: "ADD_CART",
+	payload: product
+}
+
+
+{
+	type: "CLEAR_CART"
+}
+
+Product added to cart havinng id = 5 is incremented by one
+{
+	type:"INCREMENT",
+	id: 5
+}
+
+---------
+
+ADD_TO_CART
+REMOVE_FROM_CART
+INCREMENT
+DECREMENT
 
